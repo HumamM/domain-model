@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-	return view('welcome');
+	return view('pages.index');
 });
 Route::get('/form', 'PagesController@index');
 Route::resource('courses','CoursesController');
