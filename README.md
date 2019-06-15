@@ -12,4 +12,4 @@ Open the console and cd your project root directory
 ##### Run ```php artisan migrate```
 ##### Run ```php artisan db:seed``` to run seeders, if any.
 ##### Run ```php artisan serve ```
-Now, your project will run. Good Luck!!
+Now, the project should run. Good Luck!!
