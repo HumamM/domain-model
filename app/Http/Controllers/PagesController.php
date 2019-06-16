@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function INDEX(){
-    	return view('/form');
+    public function index(){
+        $title= 'Course Info';
+    	return view('form')->with('title',$title);
     }
 }

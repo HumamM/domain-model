@@ -1,8 +1,10 @@
 <div class="container-fluid">
         <div class="row">
-            <div class="col-md-10 bg-secondary text-white">
+            <div class="col-md-12 bg-primary text-white">
            
-                <h1>Domain Model</h1>
+                <h1>@php
+                    echo $title;
+                @endphp</h1>
             </div>
         </div>
     </div>   
