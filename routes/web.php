@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-	return view('pages.index');
+	$title='Fuck shit';
+	return view('pages.index')->with('title',$title);
 });
-Route::get('/form', 'PagesController@index');
+Route::get('/form', 'CoursesController@index');
 Route::resource('courses','CoursesController');
+

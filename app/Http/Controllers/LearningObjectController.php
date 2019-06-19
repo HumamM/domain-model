@@ -2,13 +2,10 @@
 
 namespace app\Http\Controllers;
 
-use Illuminate\Http\Request;
-use app\Course;
-use app\extra;
 use app\LearningObject;
-use app\LessonUnit;
-use app\Concept;
-class CoursesController extends Controller
+use Illuminate\Http\Request;
+
+class LearningObjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +14,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-       $title = 'Course Info';
-        $data =Course::all();
-        return view('form')->with(compact('data','title'));
+        //
     }
 
     /**
@@ -29,8 +24,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        $lo = Course::find(1)->LessonUnit;
-        return $lo;
+        //
     }
 
     /**
@@ -47,10 +41,10 @@ class CoursesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \app\LearningObject  $learningObject
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(LearningObject $learningObject)
     {
         //
     }
@@ -58,10 +52,10 @@ class CoursesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \app\LearningObject  $learningObject
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(LearningObject $learningObject)
     {
         //
     }
@@ -70,10 +64,10 @@ class CoursesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \app\LearningObject  $learningObject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, LearningObject $learningObject)
     {
         //
     }
@@ -81,15 +75,11 @@ class CoursesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \app\LearningObject  $learningObject
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(LearningObject $learningObject)
     {
         //
-    }
-
-    public function show_all(){
-
     }
 }

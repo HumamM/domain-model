@@ -27,9 +27,18 @@
                       <label for="inputState">Learning Goal</label>
                       <select id="learning-goal" class="form-control">
                         <option selected>Choose...</option>
-                        <option>Knowledge</option>
+                        @if (count($data)> 0)
+                            @foreach ($data as $item)
+                              <option>{{$item->name }}</option>
+                            @endforeach
+                            
+                        @else
+                           <option>Nothing Found</option> 
+                     
+                        @endif
+                        {{-- <option>Knowledge</option>
                         <option>Comperhension</option>
-                        <option>Application</option>
+                        <option>Application</option> --}}
                       </select>
                     </div>
                   
