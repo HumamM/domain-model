@@ -16,10 +16,8 @@
         <div class="form-group col-md-12">
             {{Form::label('description', 'Course Description')}}
             {{Form::textarea('description','',['class'=>'form-control', 'placeholder' =>'Course Description'])}}
-            {!!Form::text('courseid',$course_id,['class'=>'form-control', 'placeholder' =>'Course ID'])!!}
-            @php
-                echo $course_id
-            @endphp
+            {!!Form::hidden('courseid',$course_id,['class'=>'form-control', 'placeholder' =>'Course ID'])!!}
+            
            
           </div>
       </div>

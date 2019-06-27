@@ -8,6 +8,6 @@ class PagesController extends Controller
 {
     public function index(){
         $title= 'Course Info';
-    	return view('form')->with('title',$title);
+    	return view('pages.index')->with('title',$title);
     }
 }

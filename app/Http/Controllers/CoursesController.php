@@ -154,9 +154,17 @@ class CoursesController extends Controller
 
     public function showlessons($id)
     {
+        
         $course = Course::find($id);
-        return view('courses.showlessons')->with('lesson_units', $course->lesson_units);
+        $title='$course->title';
+        // return $course->lessonUnit;
+        return view('courses.showlessons')->with('lesson_units', $course->lessonUnit)->with('title',$title);
     }
-
+    public function lessons($id)
+    {
+        $course = Course::find($id);
+        $data = ['course' => $course, 'lesson_units' => $course->lesson_units];
+        return view('courses.lessons')->with($data);
+    }
   
 }

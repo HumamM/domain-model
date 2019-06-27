@@ -4,6 +4,9 @@ namespace app\Http\Controllers;
 
 use app\LessonUnit;
 use Illuminate\Http\Request;
+use app\Course;
+
+
 
 class LessonUnitController extends Controller
 {
@@ -24,7 +27,14 @@ class LessonUnitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
+    {
+        $title= 'Lesson Unit';
+        $course= Course::find($id);
+        $course->id;
+       return view('lessonunits.create')->with('title',$title)->with('course_id',$course->id);
+    }
+    public function createFromCourse()
     {
         $title= 'Lesson Unit';
        return view('lessonunits.create')->with('title',$title);
@@ -65,9 +75,10 @@ class LessonUnitController extends Controller
      * @param  \app\LessonUnit  $lessonUnit
      * @return \Illuminate\Http\Response
      */
-    public function show(LessonUnit $lessonUnit)
+    public function show($lessonUnit)
     {
-        //
+        $lesson_unit = LessonUnit::find($lessonUnit);
+        return view('lessonunits.show')->with('lesson_unit', $lesson_unit);
     }
 
     /**
@@ -76,9 +87,10 @@ class LessonUnitController extends Controller
      * @param  \app\LessonUnit  $lessonUnit
      * @return \Illuminate\Http\Response
      */
-    public function edit(LessonUnit $lessonUnit)
+    public function edit($lessonUnit)
     {
-        //
+        $lesson_unit = LessonUnit::find($lessonUnit);
+        return view('lessonunits.edit')->with('lesson_unit', $lesson_unit);
     }
 
     /**
@@ -88,9 +100,20 @@ class LessonUnitController extends Controller
      * @param  \app\LessonUnit  $lessonUnit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LessonUnit $lessonUnit)
+    public function update(Request $request,  $id)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        //find LessonUnit
+        $lesson_unit = LessonUnit::find($id);
+        $lesson_unit->title = $request->input('title');
+        $lesson_unit->description = $request->input('description');
+        $lesson_unit->save();
+
+        return redirect ('/lessonunits/'.$id)->with('success', 'Lesson Unit Updated');
     }
 
     /**
@@ -99,8 +122,17 @@ class LessonUnitController extends Controller
      * @param  \app\LessonUnit  $lessonUnit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LessonUnit $lessonUnit)
+    public function destroy($id)
     {
-        //
+        $lesson_unit = LessonUnit::find($id);
+        
+        //Check for right user
+        // if(auth()->user()->id !==$lesson_unit->user_id){
+        //     return redirect('/courses')->with('error', 'Unathorized Page');
+        // }
+
+        $lesson_unit->delete();
+
+        return redirect ('/courses')->with('success', 'Lesson Unit Removed');
     }
 }

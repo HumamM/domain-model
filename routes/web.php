@@ -11,14 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-	$title='Fuck shit';
-	return view('pages.index')->with('title',$title);
-});
+Route::get('/', 'PagesController@index'); 
 Route::get('/form', 'CoursesController@index');
 Route::get('/courses/{course}/showlessons', 'CoursesController@showlessons')->name('courses.showlessons');
+Route::get('/courses/{course}/lessons', 'CoursesController@lessons')->name('courses.lessons');
 Route::resource('courses','CoursesController');
 Route::resource('lessonunits','LessonUnitController');
+Route::get('{course}/lesson_units/create','LessonUnitController@create')->name('create.lessonunit');
 
 
 Auth::routes();
