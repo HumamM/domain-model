@@ -17,6 +17,7 @@ class LearningObjectSymanticRelationship extends Migration
             $table->bigIncrements('id');
             $table->integer('learning_object_id');
             $table->integer('symantic_relationship_id');
+            $table->integer('related_learning_object_id');
             });
     }
 

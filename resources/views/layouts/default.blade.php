@@ -8,7 +8,13 @@
     <header>
             @include('partials.header')
     </header>
-    
-    @yield('content')
+    @include('partials.messeges')
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                            @yield('content')
+                    </div>
+                </div>
+            </div>
 </body>
 </html>

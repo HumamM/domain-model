@@ -16,5 +16,11 @@ Route::get('/', function () {
 	return view('pages.index')->with('title',$title);
 });
 Route::get('/form', 'CoursesController@index');
+Route::get('/courses/{course}/showlessons', 'CoursesController@showlessons')->name('courses.showlessons');
 Route::resource('courses','CoursesController');
+Route::resource('lessonunits','LessonUnitController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

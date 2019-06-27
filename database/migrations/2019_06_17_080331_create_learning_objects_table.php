@@ -26,6 +26,12 @@ class CreateLearningObjectsTable extends Migration
             $table->integer('expected_learning_time_minutes');
             $table->enum('media_format',['text', 'audio', 'simulation', 'video', 'multimedia']);
             $table->string('activity_type');
+            $table->enum('difficulty_level',['beginner', 'intermediate', 'advanced']);
+            $table->string('learning_goal');
+            $table->string('active_or_reflective_fslm');
+            $table->string('sensing_or_intuitive_fslm');
+            $table->string('sequential_or_global_fslm');
+            $table->string('verbal_or_visual_fslm');
             $table->timestamps();
         });
     }

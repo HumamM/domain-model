@@ -15,7 +15,8 @@ class CreateLessonUnitsTable extends Migration
     {
         Schema::create('lesson_units', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('lesson_name');
+            $table->string('title');
+            $table->longText('description');
             $table->integer('course_id');
             $table->timestamps();
         });

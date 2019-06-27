@@ -15,6 +15,7 @@ class CreateSemanticRelationshipsTable extends Migration
     {
         Schema::create('semantic_relationships', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->enum('type',['relates to', 'is an example of', 'is an exercise for']);
             $table->timestamps();
         });
     }

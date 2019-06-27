@@ -15,7 +15,7 @@ class CreateConceptsTable extends Migration
     {
         Schema::create('concepts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('concept');
+            $table->string('title');
             $table->timestamps();
         });
     }
